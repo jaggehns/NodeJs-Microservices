@@ -21,7 +21,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: peeps-service
+                name: peep-service
                 port:
                   number: 5100
           - path: /api/query

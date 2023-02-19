@@ -4,7 +4,7 @@ import QueryModel from "../models/query";
 
 const router = express.Router();
 
-router.get("api/query", (req: Request, res: Response) => {
+router.get("/api/query", (req: Request, res: Response) => {
   QueryModel.find({}, (err: any, data: any) => {
     if (err) {
       res.status(500).send(err);

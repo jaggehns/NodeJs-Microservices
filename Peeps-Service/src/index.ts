@@ -1,9 +1,13 @@
-import express, { Router } from "express";
+import express from "express";
 const amqp = require("amqplib");
 import PeepModel from "./models/peep";
 
 import mongoose from "mongoose";
 import { router } from "./routes/routes";
+
+const app = express();
+app.use(express.json());
+app.use(router);
 
 async function processMessageMessage(msg: {
   content: { toString: () => any };
@@ -27,13 +31,9 @@ async function processMessageMessage(msg: {
   }
 }
 
-const app = express();
-app.use(express.json());
-app.use(router);
-
 const Startup = async () => {
   try {
-    await mongoose.connect("mongodb://message-mongo-service:27017/peep");
+    await mongoose.connect("mongodb://peep-mongo-service:27017/peep");
     console.log("connected to mongo");
 
     const amqpConnection = await amqp.connect(

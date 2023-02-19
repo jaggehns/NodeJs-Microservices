@@ -29,9 +29,11 @@ router.post("/api/message", async (req: Request, res: Response) => {
     console.log("Connected to RabbitMQ");
     const channel = await connection.createChannel();
     console.log("Created RabbitMQ channel");
-    await channel.assertExchange("message", "topic", { durable: false });
+    await channel.assertExchange("message-exchange", "topic", {
+      durable: false,
+    });
     await channel.publish(
-      "message",
+      "message-exchange",
       "messi",
       Buffer.from(JSON.stringify(messageData))
     );

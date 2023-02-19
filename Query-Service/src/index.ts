@@ -43,7 +43,7 @@ async function processMessageMessage(msg: {
 
 const Startup = async () => {
   try {
-    await mongoose.connect("mongodb://message-mongo-service:27017/query");
+    await mongoose.connect("mongodb://query-mongo-service:27017/query");
     console.log("connected to mongo");
 
     const amqpConnection = await amqp.connect(

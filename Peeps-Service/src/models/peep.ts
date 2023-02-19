@@ -7,7 +7,7 @@ interface Peep {
 
 const schema = new Schema<Peep>({
   messageId: { type: String, required: true },
-  peeps: [{ type: String, peepId: String }],
+  peeps: [{ peep: String, peepId: String }],
 });
 
 const PeepModel = model<Peep>("Peep", schema);
