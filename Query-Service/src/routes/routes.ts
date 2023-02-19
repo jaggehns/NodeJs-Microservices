@@ -1,12 +1,17 @@
 import express, { Request, Response } from "express";
+const amqp = require("amqplib");
+import QueryModel from "../models/query";
 
 const router = express.Router();
 
-router.get("/api/message/get", (req: Request, res: Response) => {
-  console.log("Message is working");
-  res.send({ greeting: "Hello" });
+router.get("api/query", (req: Request, res: Response) => {
+  QueryModel.find({}, (err: any, data: any) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(data);
+    }
+  });
 });
-
-router.post("/api/message/post", (req: Request, res: Response) => {});
 
 export { router };

@@ -32,7 +32,7 @@ router.post("/api/message", async (req: Request, res: Response) => {
     await channel.assertExchange("message", "topic", { durable: false });
     await channel.publish(
       "message",
-      "msg",
+      "messi",
       Buffer.from(JSON.stringify(messageData))
     );
     console.log("Published to RabbitMQ");
