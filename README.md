@@ -62,7 +62,7 @@ macOS and Linux:
  Open your hosts file and add the following line at the bottom:
 `127.0.0.1 message-app.dev`
 
-## Runnning the Microservices  
+## Running the Microservices  
 
 From a terminal in the root directory of NodeJS-Microservices, run the following command:
 `skaffold dev`
