@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: peep-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: peep
+  template:
+    metadata:
+      labels:
+        app: peep
+    spec:
+      containers:
+        - name: peep
+          image: jaggehns/peep:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: peep-service
+spec:
+  selector:
+    app: peep
+  ports:
+    - name: peep
+      protocol: TCP
+      port: 5100
+      targetPort: 5100

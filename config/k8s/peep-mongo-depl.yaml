@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: peep-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: peep-mongo
+  template:
+    metadata:
+      labels:
+        app: peep-mongo
+    spec:
+      containers:
+        - name: peep-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: peep-mongo-service
+spec:
+  selector:
+    app: peep-mongo
+  ports:
+    - name: database
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

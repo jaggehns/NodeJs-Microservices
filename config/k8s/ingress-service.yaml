@@ -10,13 +10,27 @@ spec:
     - host: message-app.dev
       http:
         paths:
-          - path: /api/message/get
+          - path: /api/message
             pathType: Prefix
             backend:
               service:
                 name: message-service
                 port:
                   number: 5000
+          - path: /api/peeps/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: peeps-service
+                port:
+                  number: 5100
+          - path: /api/query
+            pathType: Prefix
+            backend:
+              service:
+                name: query-service
+                port:
+                  number: 5200
           - path: /?(.*)
             pathType: Prefix
             backend:

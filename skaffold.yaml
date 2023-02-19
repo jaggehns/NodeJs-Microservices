@@ -16,6 +16,22 @@ build:
         manual:
           - src: "src/**/*.js"
             dest: .
+    - image: jaggehns/peep
+      context: Peeps-Service
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.js"
+            dest: .
+    - image: jaggehns/query
+      context: Query-Service
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.js"
+            dest: .
     - image: jaggehns/front-end
       context: front-end
       docker:
