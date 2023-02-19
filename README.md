@@ -28,7 +28,7 @@
 
 ---
 
-### 🧑🏼‍🔬 Message Bus / Queue
+### 🧑🏼‍🔬 High-Level Architecture
 
 - The application allows for asynchronous event handling via RabbitMQ
 - This allows for data changes in any service to be normalized across the other services and databases
