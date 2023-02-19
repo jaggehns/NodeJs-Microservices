@@ -64,7 +64,7 @@ macOS and Linux:
 
 ## Runnning the Microservices  
 
-From a terminal in the root dirctory of NodeJS-Microservices, run the following command:
+From a terminal in the root directory of NodeJS-Microservices, run the following command:
 `skaffold dev`
 
 Allow time for all of the services to start and connect. Stop any pods which fail to connect via Docker Desktop. They will restart automatically.
